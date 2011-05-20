@@ -8,4 +8,4 @@ How to use:
 This function accepts unlimited number of html tags. You can pass tags like this:
  changeGradientColoredElementsToCanvas('h1', 'p', 'span')
 
-It’s best to fire this function after rendering complete.
+It’s best to fire this function after rendering completed.
