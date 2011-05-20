@@ -1,0 +1,11 @@
+This function get DOM elements from their tags and convert those ones that have inline style color: -webkit-gradient...(...);  And convert them to canvas. It keeps class and style of previus element and all positioning information remain same. So you shouldn't  worry about mixing up position because of using this.
+Currently it just accepts gradients that applied via inline style property inside the HTML tag. I investigated to find if there is a way to get gradient info from external CSS files but unfortunately those info is not accessible via window.getComputedStyle() because gradient color is not an approved value for color property. Keep in mind that you should add inline style for elements that you want have gradient color.
+Format of gradient should be webkit based,  like this:
+-webkit-linear-gradient(top, #c757ad 0%,#ba3498 29%,#b82f95 31%,#b3228d 38%,#b11b89 44%,#ae1585 46%,#ad1283 50%,#b31888 54%,#bf2592 69%,#c82f9a 79%,#cc339d 81%,#d43ca4 90%,#dc45aa 100%);
+You can ignore top because currently this function just add linear top to bottom gradient. But if you use auto gradient generators it's okay to have top or even -moz prefix. Anyway format of colors and percentages should be same. 
+
+How to use:
+This function accepts unlimited number of html tags. You can pass tags like this:
+ changeGradientColoredElementsToCanvas('h1', 'p', 'span')
+
+It’s best to fire this function after rendering complete.
